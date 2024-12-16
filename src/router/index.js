@@ -1,25 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Index from '@/views/Index.vue'
+import Home from '@/views/Home.vue'
 import Employs from '@/views/Employs.vue'
+import Chart from '@/views/Chart.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: Index,
+      name: 'home',
+      component: Home,
       children: [
         {
           path: '/',
-          name: 'employs',
+          name: 'employers',
           component: Employs,
-        }, {
-          path: '/dart',
-          name: 'dart',
-          component: () => import('@/views/Dart.vue'),
-        }
+        },
+        {
+          path: '/chart',
+          name: 'chart',
+          component: () => Chart
+        },
       ]
-    },
+    }
   ],
 })
 
